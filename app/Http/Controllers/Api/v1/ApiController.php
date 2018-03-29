@@ -13,7 +13,7 @@ class ApiController extends Controller
         return response()->json($data, $statusCode, $headers);
     }
 
-    protected function respondWithMessage($message, $statusCode, $headers = [])
+    protected function respondWithMessage($message, $statusCode = Response::HTTP_OK, $headers = [])
     {
         return $this->respond([
             'message' => $message
@@ -22,7 +22,7 @@ class ApiController extends Controller
 
     protected function respondSuccess($data, $statusCode = Response::HTTP_OK, $headers = [])
     {
-        return $this->respondWithMessage($data, $statusCode, $headers);
+        return $this->respond($data, $statusCode, $headers);
     }
 
     protected function respondNotFound($message = 'Not Found')
