@@ -19,7 +19,7 @@ class ProjectRepositoryEloquent extends EloquentRepository implements ProjectInt
 
     public function create()
     {
-        $project = new Project();
+        $project = new Project;
         $project->name = request('name');
 
         return $project->save();
